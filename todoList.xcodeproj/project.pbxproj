@@ -9,19 +9,18 @@
 /* Begin PBXBuildFile section */
 		DD0447B72A96088C000B1583 /* NewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0447B62A96088C000B1583 /* NewList.swift */; };
 		DD0447B92A9611D1000B1583 /* TaskTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0447B82A9611D1000B1583 /* TaskTypeSelector.swift */; };
-		DD0447BB2A964CBA000B1583 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0447BA2A964CBA000B1583 /* Tab.swift */; };
 		DD0A525F2A94E35E00825E1F /* todoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A525E2A94E35E00825E1F /* todoListApp.swift */; };
 		DD0A52612A94E35E00825E1F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A52602A94E35E00825E1F /* MainView.swift */; };
 		DD0A52632A94E36000825E1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0A52622A94E36000825E1F /* Assets.xcassets */; };
 		DD0A52662A94E36000825E1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0A52652A94E36000825E1F /* Preview Assets.xcassets */; };
 		DD0A526D2A94E99200825E1F /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A526C2A94E99200825E1F /* Tabs.swift */; };
 		DD0A526F2A94EC1E00825E1F /* TopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A526E2A94EC1E00825E1F /* TopBar.swift */; };
+		DDCD62C52A96623B00D0E575 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD62C42A96623B00D0E575 /* Tab.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD0447B62A96088C000B1583 /* NewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewList.swift; sourceTree = "<group>"; };
 		DD0447B82A9611D1000B1583 /* TaskTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeSelector.swift; sourceTree = "<group>"; };
-		DD0447BA2A964CBA000B1583 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		DD0A525B2A94E35E00825E1F /* todoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0A525E2A94E35E00825E1F /* todoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todoListApp.swift; sourceTree = "<group>"; };
 		DD0A52602A94E35E00825E1F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -29,6 +28,7 @@
 		DD0A52652A94E36000825E1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD0A526C2A94E99200825E1F /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		DD0A526E2A94EC1E00825E1F /* TopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBar.swift; sourceTree = "<group>"; };
+		DDCD62C42A96623B00D0E575 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +45,7 @@
 		DD0A52522A94E35E00825E1F = {
 			isa = PBXGroup;
 			children = (
+				DDCD62C42A96623B00D0E575 /* Tab.swift */,
 				DD0A525D2A94E35E00825E1F /* todoList */,
 				DD0A525C2A94E35E00825E1F /* Products */,
 			);
@@ -67,7 +68,6 @@
 				DD0447B82A9611D1000B1583 /* TaskTypeSelector.swift */,
 				DD0A526E2A94EC1E00825E1F /* TopBar.swift */,
 				DD0A526C2A94E99200825E1F /* Tabs.swift */,
-				DD0447BA2A964CBA000B1583 /* Tab.swift */,
 				DD0A52622A94E36000825E1F /* Assets.xcassets */,
 				DD0A52642A94E36000825E1F /* Preview Content */,
 			);
@@ -158,7 +158,7 @@
 				DD0447B92A9611D1000B1583 /* TaskTypeSelector.swift in Sources */,
 				DD0A526D2A94E99200825E1F /* Tabs.swift in Sources */,
 				DD0A526F2A94EC1E00825E1F /* TopBar.swift in Sources */,
-				DD0447BB2A964CBA000B1583 /* Tab.swift in Sources */,
+				DDCD62C52A96623B00D0E575 /* Tab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
