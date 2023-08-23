@@ -45,7 +45,6 @@
 		DD0A52522A94E35E00825E1F = {
 			isa = PBXGroup;
 			children = (
-				DDCD62C42A96623B00D0E575 /* Tab.swift */,
 				DD0A525D2A94E35E00825E1F /* todoList */,
 				DD0A525C2A94E35E00825E1F /* Products */,
 			);
@@ -63,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0A525E2A94E35E00825E1F /* todoListApp.swift */,
+				DDCD62C42A96623B00D0E575 /* Tab.swift */,
 				DD0A52602A94E35E00825E1F /* MainView.swift */,
 				DD0447B62A96088C000B1583 /* NewList.swift */,
 				DD0447B82A9611D1000B1583 /* TaskTypeSelector.swift */,
