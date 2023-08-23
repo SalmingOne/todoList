@@ -6,37 +6,43 @@
 //
 
 import SwiftUI
+enum Screen {
+    case main
+    case other
+}
 
 struct MainView: View {
     var body: some View{
-        VStack(){
-            TopBar()
-                .frame(height: 50)
-                .padding()
-            Tabs()
-                .padding()
-            Image("background")
-                .padding(.vertical)
-            Spacer()
-            Text("Create your first to-do list...")
-                .font(.title)
-                .fontWeight(.semibold)
-            Button {
-                print(1)
-            } label: {
-                ZStack{
-                    RoundedRectangle(cornerRadius: 10)
-                        .frame(width: 200.0, height: 50.0)
-                        .foregroundColor(.black)
+        NavigationView {
+            VStack(){
+                TopBar(typeScreen: .main)
+                    .frame(height: 50)
+                    .padding()
+                Tabs()
+                    .padding()
+                Image("background")
+                    .padding(.vertical)
+                Spacer()
+                Text("Create your first to-do list...")
+                    .font(.title)
+                    .fontWeight(.semibold)
+                
+                NavigationLink {
+                    NewList()
+                } label: {
                     Text("+ New List")
-                        .font(.title)
+                        .padding()
+                        .font(.title2)
                         .fontWeight(.semibold)
                         .foregroundColor(.white)
                 }
+                .background {
+                    Color.black
+                }
+                .cornerRadius(10)
+                .padding()
+                Spacer()
             }
-            .padding()
-
-            Spacer()
         }
     }
 }
