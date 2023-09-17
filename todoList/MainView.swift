@@ -12,21 +12,12 @@ enum Screen {
 }
 
 struct MainView: View {
+    @EnvironmentObject var taskLists: TaskListViewModel
     var body: some View{
-        NavigationView {
-            VStack(){
-                TopBar(typeScreen: .main)
-                    .frame(height: 50)
-                    .padding()
+        NavigationStack {
+            VStack{
                 Tabs()
                     .padding()
-                Image("background")
-                    .padding(.vertical)
-                Spacer()
-                Text("Create your first to-do list...")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                
                 NavigationLink {
                     NewList()
                 } label: {
@@ -42,6 +33,15 @@ struct MainView: View {
                 .cornerRadius(10)
                 .padding()
                 Spacer()
+            }
+            .toolbar{
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image("logo")
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image("searchImage")
+                        .padding()
+                }
             }
         }
     }

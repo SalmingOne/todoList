@@ -10,6 +10,7 @@ import SwiftUI
 struct TopBar: View {
     var typeScreen: Screen
     var dissmisAction: DismissAction?
+    @Binding var pinned: Bool
     var body: some View {
         if typeScreen == .main{
             HStack{
@@ -28,21 +29,27 @@ struct TopBar: View {
                     Image("backButton")
                 }
                 Spacer()
-                Button {
-                    
-                } label: {
-                    HStack{
-                        Image("pin")
-                            .aspectRatio(contentMode: .fit)
-                            .scaleEffect(1.5)
-                        Text("Pin")
-                    }
-                    .padding(10)
-                    .background{
+                HStack{
+                    Image(systemName: "pin")
+                    Text(pinned ? "Pinned" : "Pin")
+                }
+                .padding(10)
+                .foregroundColor(pinned ? .white : .black)
+                .background{
+                    if pinned{
+                        RoundedRectangle(cornerRadius: 10)
+                        .fill(.black)
+                    } else {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke()
+                            .foregroundColor(.black)
                     }
-                    .foregroundColor(.black)
+                }
+                .onTapGesture {
+                    withAnimation(.linear(duration: 0.2)) {
+                        pinned.toggle()
+                    }
+                    
                 }
             }
             .padding()
@@ -50,8 +57,3 @@ struct TopBar: View {
     }
 }
 
-struct TopBar_Previews: PreviewProvider {
-    static var previews: some View {
-        TopBar(typeScreen: .other)
-    }
-}

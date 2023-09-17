@@ -6,46 +6,24 @@
 //
 
 import SwiftUI
+enum TasksType {
+    case personal
+    case work
+    case finance
+    case other
+    case nothing
+}
 
 struct TaskTypeSelector: View {
+    @Binding var type: TasksType
     var body: some View {
         HStack(spacing: 13.0){
-            Text("Personal")
-                .foregroundColor(.white)
-                .padding(10)
-                .background{
-                    RoundedRectangle(cornerRadius: 6)
-                        .foregroundColor(Color("buttonColor"))
-                }
-            
-            Text("Work")
-                .foregroundColor(.white)
-                .padding(10)
-                .background{
-                    RoundedRectangle(cornerRadius: 6)
-                        .foregroundColor(Color("buttonColor"))
-                }
-            Text("Finance")
-                .foregroundColor(.white)
-                .padding(10)
-                .background{
-                    RoundedRectangle(cornerRadius: 6)
-                        .foregroundColor(Color("buttonColor"))
-                }
-            Text("Other")
-                .foregroundColor(.white)
-                .padding(10)
-                .background{
-                    RoundedRectangle(cornerRadius: 6)
-                        .foregroundColor(Color("buttonColor"))
-                }
-            
+            TaskType(title: "Personal", taskType: .personal, selectedType: $type)
+            TaskType(title: "Work", taskType: .work, selectedType: $type)
+            TaskType(title: "Finance", taskType: .finance, selectedType: $type)
+            TaskType(title: "Other", taskType: .other, selectedType: $type)
+
         }
     }
 }
 
-struct TaskTypeSelector_Previews: PreviewProvider {
-    static var previews: some View {
-        TaskTypeSelector()
-    }
-}

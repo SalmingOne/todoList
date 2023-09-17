@@ -17,9 +17,7 @@ struct Tab: View {
             .frame(width: 200.0, height: 50.0)
             .foregroundColor(tabType == selectedTab ? .black : Color("selectTabColor"))
             .onTapGesture {
-                withAnimation {
                     selectedTab = tabType
-                }
             }
             .overlay(
                 Text(nameTab)
