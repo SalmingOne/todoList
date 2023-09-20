@@ -8,6 +8,7 @@
 import SwiftUI
 
 class TaskViewModel: ObservableObject{
+    @Published var count = 0
     @Published var taskList: [Task] = [
         Task(id: 1, title: "12"),
         Task(id: 2, title: "1fsd2"),

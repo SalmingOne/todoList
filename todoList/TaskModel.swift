@@ -13,7 +13,7 @@ struct TaskList {
     var listTasks: [Task]
 }
 
-struct Task: Identifiable {
+struct Task: Identifiable, Hashable {
     let id: Int
     var title: String
     var checked: Bool = false
