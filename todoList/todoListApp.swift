@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct todoListApp: App {
-    @StateObject var taskLists = TaskListViewModel()
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(taskLists)
         }
     }
 }

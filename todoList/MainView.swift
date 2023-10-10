@@ -6,29 +6,24 @@
 //
 
 import SwiftUI
-enum Screen {
-    case main
-    case other
-}
 
 struct MainView: View {
-    @EnvironmentObject var taskLists: TaskListViewModel
+    @StateObject var taskLists = TaskListViewModel()
+    var isEmpty = false
     var body: some View{
         NavigationStack {
-            VStack{
+            VStack(alignment: .center){
                 Tabs()
+                    .environmentObject(taskLists)
                     .padding()
                 NavigationLink {
-                    NewList()
+                    NewList(navigationType: .add)
+                        .environmentObject(taskLists)
                 } label: {
-                    Text("+ New List")
-                        .padding()
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                }
-                .background {
-                    Color.black
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .foregroundColor(.black)
+                        .frame(width: 70,height: 70)
                 }
                 .cornerRadius(10)
                 .padding()
@@ -38,17 +33,12 @@ struct MainView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Image("logo")
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image("searchImage")
-                        .padding()
-                }
             }
         }
     }
 }
 
-struct MainView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView()
-    }
+
+#Preview{
+    MainView()
 }

@@ -9,13 +9,7 @@ import SwiftUI
 
 class TaskViewModel: ObservableObject{
     @Published var count = 0
-    @Published var taskList: [Task] = [
-        Task(id: 1, title: "12"),
-        Task(id: 2, title: "1fsd2"),
-        Task(id: 3, title: "12sdf"),
-        Task(id: 4, title: "12sdf"),
-        Task(id: 5, title: "1sf2"),
-    ]
+    @Published var taskList: [Task] = []
     func addTask(title: String) {
         taskList.append(Task(id: Int.random(in: 0...10000000), title: title))
     }
@@ -30,9 +24,20 @@ class TaskViewModel: ObservableObject{
 
 class TaskListViewModel: ObservableObject {
     @Published var taskLists: [TaskList] = []
-    
-    
+    @Published var isEmpty: Bool  = true
+    var currentTask: Int = 0
     func addTaskList(title: String, category: TasksType, isPinned: Bool, tasks: [Task]) {
-        taskLists.append(TaskList(title: title, pinned: isPinned, category: category, listTasks: tasks))
+        taskLists.append(TaskList(id:Int.random(in: 0...10000000) ,title: title, pinned: isPinned, category: category, listTasks: tasks))
+        isEmpty = false
+    }
+    func changeTaskList(id: Int, title: String, category: TasksType, isPinned: Bool, listTasks: [Task]) {
+        print(taskLists)
+        if let index = taskLists.firstIndex(where: { $0.id == id }) {
+            taskLists[index].title = title
+            taskLists[index].category = category
+            taskLists[index].pinned = isPinned
+            taskLists[index].listTasks = listTasks
+        }
+        print(taskLists)
     }
 }

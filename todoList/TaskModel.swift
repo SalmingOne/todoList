@@ -6,9 +6,10 @@
 //
 
 import Foundation
-struct TaskList {
+struct TaskList: Identifiable, Hashable {
+    var id: Int
     var title: String
-    let pinned: Bool
+    var pinned: Bool
     var category: TasksType
     var listTasks: [Task]
 }

@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
-enum TasksType {
-    case personal
-    case work
-    case finance
-    case other
-    case nothing
+enum TasksType: String{
+    case personal = "Personal"
+    case work = "Work"
+    case finance = "Finance"
+    case other, nothing = "Other"
 }
 
 struct TaskTypeSelector: View {

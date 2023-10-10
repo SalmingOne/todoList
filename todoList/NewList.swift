@@ -6,12 +6,19 @@
 //
 
 import SwiftUI
+enum NavigationType{
+    case edit
+    case add
+}
 
 struct NewList: View {
+    
+    var navigationType: NavigationType
+    
     @Environment(\.dismiss) var dismissAction
     @EnvironmentObject var taskLists: TaskListViewModel
-    
-    @State var tasks = TaskViewModel()
+    @State var newTasks: TaskList?
+    @StateObject var tasks = TaskViewModel()
     @State var category = TasksType.nothing
     @State var pinned: Bool = false
     @State var listTitle = ""
@@ -29,11 +36,19 @@ struct NewList: View {
                 ScrollView{
                     ForEach($tasks.taskList.indices, id: \.self) { indexTask in
                         HStack{
-                            Image(systemName: "square")
+                            Image(systemName: tasks.taskList[indexTask].checked ? "checkmark.square" : "square")
                                 .padding(.horizontal)
+                                .onTapGesture {
+                                    tasks.taskList[indexTask].checked.toggle()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                        tasks.deleteTask(at: indexTask)
+                                    }
+                                }
                             TextField("",text: $tasks.taskList[indexTask].title,axis: .vertical)
                                 .submitLabel(.done)
                                 .padding(.vertical, 10)
+                                .strikethrough(tasks.taskList[indexTask].checked)
+                                .foregroundStyle(tasks.taskList[indexTask].checked ? Color.gray : Color.black)
                                 .onChange(of: tasks.taskList[indexTask].title) { string in
                                     for char in string
                                     {
@@ -54,11 +69,6 @@ struct NewList: View {
                                     }
                                     return
                                 }
-                        }
-                    }
-                    .onDelete { index in
-                        withAnimation {
-                            tasks.deleteTask(atOffsets: index)
                         }
                     }
                 }
@@ -128,6 +138,15 @@ struct NewList: View {
                     Image("backButton")
                         .onTapGesture {
                             dismissAction()
+                            if listTitle.isEmpty{
+                                listTitle = "Tasks #\(taskLists.taskLists.count + 1)"
+                            }
+                            if navigationType == .add{
+                                taskLists.addTaskList(title: listTitle, category: category, isPinned: pinned, tasks: tasks.taskList)
+                            }
+                            if navigationType == .edit{
+                                taskLists.changeTaskList(id: newTasks!.id, title: listTitle, category: category, isPinned: pinned, listTasks: tasks.taskList)
+                            }
                         }
                 }
                 ToolbarItem{
@@ -136,32 +155,39 @@ struct NewList: View {
                         Text(pinned ? "Pinned" : "Pin")
                     }
                     .onTapGesture {
-                        withAnimation{
-                            pinned.toggle()
-                        }
+                        pinned.toggle()
                     }
-                    .padding(10)
                     .foregroundColor(pinned ? .white : .black)
+                    .padding(10)
                     .background{
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke()
+                        if pinned{
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill()
+                        } else {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke()
+                        }
                     }
                 }
             }
         }
         .navigationBarBackButtonHidden(true)
+        .onAppear{
+            if navigationType == .edit{
+                listTitle = newTasks?.title ?? ""
+                tasks.taskList = newTasks!.listTasks
+            }
+        }
     }
 }
-
-
-struct NewList_Previews: PreviewProvider {
-    static var previews: some View {
-        NewList()
-    }
-}
-
 extension UIApplication{
     func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
+
+
+
+#Preview(body: {
+    NewList(navigationType: .add)
+})

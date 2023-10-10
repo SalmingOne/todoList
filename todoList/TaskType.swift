@@ -11,6 +11,7 @@ struct TaskType: View {
     let title: String
     let taskType: TasksType
     @Binding var selectedType: TasksType
+    
     var body: some View {
         Text(title)
             .foregroundColor(.white)
@@ -27,7 +28,6 @@ struct TaskType: View {
                         selectedType = taskType
                     }
                 }
-                
             }
     }
 }

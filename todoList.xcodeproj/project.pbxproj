@@ -14,6 +14,7 @@
 		DD0A52662A94E36000825E1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD0A52652A94E36000825E1F /* Preview Assets.xcassets */; };
 		DD0A526D2A94E99200825E1F /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0A526C2A94E99200825E1F /* Tabs.swift */; };
 		DD20D2502ABB9F0200EB4898 /* NewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD20D24F2ABB9F0200EB4898 /* NewList.swift */; };
+		DD4741792AC1A7C6002A5DCD /* MainViewContentElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4741782AC1A7C6002A5DCD /* MainViewContentElement.swift */; };
 		DDCD62C52A96623B00D0E575 /* Tab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD62C42A96623B00D0E575 /* Tab.swift */; };
 		DDCD62C72A974A1400D0E575 /* TaskType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD62C62A974A1400D0E575 /* TaskType.swift */; };
 		DDCD62C92A9751E700D0E575 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCD62C82A9751E700D0E575 /* TaskModel.swift */; };
@@ -29,6 +30,7 @@
 		DD0A52652A94E36000825E1F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD0A526C2A94E99200825E1F /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		DD20D24F2ABB9F0200EB4898 /* NewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewList.swift; sourceTree = "<group>"; };
+		DD4741782AC1A7C6002A5DCD /* MainViewContentElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewContentElement.swift; sourceTree = "<group>"; };
 		DDCD62C42A96623B00D0E575 /* Tab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tab.swift; sourceTree = "<group>"; };
 		DDCD62C62A974A1400D0E575 /* TaskType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskType.swift; sourceTree = "<group>"; };
 		DDCD62C82A9751E700D0E575 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		DD0A525D2A94E35E00825E1F /* todoList */ = {
 			isa = PBXGroup;
 			children = (
+				DD4741782AC1A7C6002A5DCD /* MainViewContentElement.swift */,
 				DD20D24F2ABB9F0200EB4898 /* NewList.swift */,
 				DD0A525E2A94E35E00825E1F /* todoListApp.swift */,
 				DD0A52602A94E35E00825E1F /* MainView.swift */,
@@ -116,7 +119,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					DD0A525A2A94E35E00825E1F = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -164,6 +167,7 @@
 				DDCD62CB2A97524200D0E575 /* TaskViewModel.swift in Sources */,
 				DDCD62C92A9751E700D0E575 /* TaskModel.swift in Sources */,
 				DD0447B92A9611D1000B1583 /* TaskTypeSelector.swift in Sources */,
+				DD4741792AC1A7C6002A5DCD /* MainViewContentElement.swift in Sources */,
 				DD0A526D2A94E99200825E1F /* Tabs.swift in Sources */,
 				DDCD62C72A974A1400D0E575 /* TaskType.swift in Sources */,
 				DDCD62C52A96623B00D0E575 /* Tab.swift in Sources */,
@@ -209,6 +213,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -223,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -269,6 +274,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -277,7 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -301,8 +307,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -310,9 +316,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = myTeam.todoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -330,8 +339,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,9 +348,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = myTeam.todoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
